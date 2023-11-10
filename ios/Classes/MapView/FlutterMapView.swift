@@ -147,6 +147,10 @@ class FlutterMapView: MKMapView, UIGestureRecognizerDelegate {
         if let mapType: Int = options["mapType"] as? Int {
             self.mapType = self.mapTypes[mapType]
         }
+
+        if #available(iOS 13.0, *) {
+            self.pointOfInterestFilter = .excludingAll
+        }    
         
         if let trafficEnabled: Bool = options["trafficEnabled"] as? Bool {
             if #available(iOS 9.0, *) {
